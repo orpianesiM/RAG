@@ -1,0 +1,29 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "rag-local"
+version = "0.1.0"
+description = "Sistema RAG local con ChromaDB, LangChain y respuestas grounded."
+requires-python = ">=3.11"
+dependencies = [
+    "chromadb>=1.0,<2.0",
+    "langchain>=1.0,<2.0",
+    "langchain-chroma>=1.0,<2.0",
+    "langchain-openai>=1.0,<2.0",
+    "langchain-text-splitters>=1.0,<2.0",
+    "openai>=2.0,<3.0",
+    "pydantic>=2.7,<3.0",
+    "python-dotenv>=1.0,<2.0",
+    "tiktoken>=0.8,<1.0",
+]
+
+[project.optional-dependencies]
+dev = ["pytest>=8.0,<9.0"]
+
+[tool.setuptools]
+py-modules = ["ingest", "rag", "schemas", "vector_store"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
